@@ -1,0 +1,24 @@
+# Build output
+output/
+dist/
+*.exe
+*.test
+*.out
+
+# Packages
+*.deb
+*.rpm
+
+# Logs
+*.log
+
+# Go
+vendor/
+go.work
+go.work.sum
+
+# IDE / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
