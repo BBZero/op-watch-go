@@ -1,0 +1,88 @@
+{
+    // 和 # 開頭的都是注解
+    // 是否檢測
+	"enable": true,
+    // 離開機時間超過多久才真正開始檢測, sec
+	"machine_updelay": 20,
+	
+	//是否noti
+    "enable_noti": true,
+	"mail_command": "open-mailer",
+	
+    // 日誌文件路徑, 若不設置則不記錄日誌到file
+	"log": {
+		"path": "/var/log/op-watch/opwatch.log",
+		"level": "INFO",
+		"maxsize": 10,
+		"maxnum": 5
+	},
+
+	"mem_monit": {
+		"enable": true,
+		"warn_threshold": 80,
+		"recover_threshold": 70,
+		"interval": 60,
+		"recheck_interval": 10,
+		"recheck_cnt": 3
+	},
+
+    // process 監控配置
+	// 匹配項請先用指令pgrep -f xxx測試一次, 確保匹配正確(能唯一匹配到target)
+	// pgrep -af xxx 可以查看原始指令
+	"process_monit":{
+		"interval": 45,
+		"ck_timeout": 10,
+		"cycle":1,
+		"monitors": [
+			{
+				"name": "OpenCommandServer",
+				"pattern": "OpenCommandServer"
+			},
+			{
+				"name": "OpenIO",
+				"pattern": "OpenIO"
+			}
+		]
+	},
+	"disk_monit":{
+		"interval": 300,
+		"ck_timeout": 10,
+		"cycle":1,
+		"monitors": [
+			{
+				"name": "Root",
+				"path": "/",
+				"exceed_threshold": 85,
+				"recover_threshold": 80
+			},
+			{
+				"name": "Ramdisk",
+				"path": "/mnt/ramdisk",
+				"exceed_threshold": 80,
+				"recover_threshold": 70
+			}
+		]
+	},
+	"mysqlalive_monit": {
+		"enable": false,
+		// 只檢測本機 mysqld 進程和端口是否監聽, [1, 86400]
+		"interval": 30,
+		// [1, 60]
+		"recheck_interval": 5,
+		// [2, 10]
+		"recheck_cnt": 3,
+		"port": 3306
+	},
+	"mysqlrepl_monit": {
+		"enable": false,
+		"interval": 300,
+		"cycle": 1,
+		// 0 表示不做雙重檢查, 否則 [20, 180]
+		"recheck_delay": 90,
+		"account": "monit_user",
+		"pwd": "monit_user",
+		"ip": "127.0.0.1",
+		"port": 3306,
+		"connect_timeout": 10
+	}
+}
