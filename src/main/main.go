@@ -186,7 +186,7 @@ func runMonitor(configPath string) error {
 		}
 	}
 
-	if cfg.MemMonit.Enable {
+	if cfg.MemMonit != nil && cfg.MemMonit.Enable {
 		monitors = append(monitors, monitor.NewMemoryUsageMonitor(*cfg.MemMonit, mailSender, stopCh))
 		logger.Infof("Append memory monitor: interval=%ds, recheck_interval=%ds, recheck_cnt=%d",
 			cfg.MemMonit.Interval, cfg.MemMonit.RecheckInterval, cfg.MemMonit.RecheckCnt)
