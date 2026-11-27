@@ -14,7 +14,7 @@ import (
 
 const (
 	mailCaller     = "op-watch"
-	mailSenderName = "OpWatch"
+	mailSenderName = "OpWatch(Go)"
 )
 
 // MailSender sends notification emails via an external mail command.

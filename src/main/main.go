@@ -94,7 +94,7 @@ func runMonitor(configPath string) error {
 	logger.Info(separator)
 	logger.Info("Main: opwatch starting")
 	logger.Infof("Config Path: %s", configPath)
-	logger.Infof("Configs: enable=%v machine_updelay=%d enable_noti=%v process_interval=%d process_cycle=%d process_ck_timeout=%d process_monitnum=%d disk_interval=%d disk_cycle=%d disk_ck_timeout=%d disk_monitnum=%d",
+	logger.Infof("Configs: enable=%v machine_updelay=%d enable_noti=%v",
 		cfg.Enable, cfg.MachineUpdelay, cfg.EnableNotify)
 	hasMonitor := false
 	if cfg.ProcessMonit != nil {
