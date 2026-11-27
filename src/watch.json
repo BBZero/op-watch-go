@@ -11,7 +11,7 @@
 	
     // 日誌文件路徑, 若不設置則不記錄日誌到file
 	"log": {
-		"path": "/var/log/op-watch/opwatch.log",
+		"path": "/var/log/opwatch/opwatch.log",
 		"level": "INFO",
 		"maxsize": 10,
 		"maxnum": 5

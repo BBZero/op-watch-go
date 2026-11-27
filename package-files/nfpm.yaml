@@ -1,0 +1,20 @@
+name: opwatch
+version: 0.0.0
+arch: amd64
+maintainer: bingo
+description: Op Watch - A simple monitoring tool which relay on OpenMailer
+
+contents:
+  - src: ./app/opwatch
+    dst: /usr/bin/opwatch
+  - src: ./app/watch.json
+    dst: /etc/opwatch/watch.json
+    type: config|noreplace
+  - src: ./deploy/opwatch.service
+    dst: /etc/systemd/system/opwatch.service
+
+scripts:
+  postinstall: ./deploy/postinstall.sh
+  preremove: ./deploy/preremove.sh
+  postremove: ./deploy/postremove.sh
+  preinstall: ./deploy/preinstall.sh

@@ -39,7 +39,7 @@ func PrintVersion() {
 
 	logo := fmt.Sprintf(`
     ╔════════════════╗
-    ║  %sOP-WATCH%s     ║
+    ║  %sOpWatch%s     ║
     ║  %s%s%s%s║
     ║  %s%s║
     ╚════════════════╝

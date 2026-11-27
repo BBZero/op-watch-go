@@ -1,0 +1,19 @@
+[Unit]
+Description=Op Watch Service
+After=network.target
+Wants=network.target
+StartLimitIntervalSec=90
+StartLimitBurst=5
+
+[Service]
+Type=simple
+User=opwatch
+LogsDirectory=opwatch
+ExecStart=/usr/bin/opwatch run -c /etc/opwatch/watch.conf
+Restart=on-failure
+RestartSec=10
+KillSignal=SIGTERM
+# UMask=0022
+
+[Install]
+WantedBy=multi-user.target

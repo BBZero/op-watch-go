@@ -11,7 +11,7 @@ error_exit() {
     echo "$LOGTAG Error: $*" >&2
     exit 1
 }
-devbuildmode=1
+devbuildmode=0
 case "$1" in
     --devmode)
     devbuildmode=1
@@ -38,7 +38,7 @@ scriptpath="$(cd "$(dirname "$0")" && pwd)"
 
 srcpath="$scriptpath/src"
 outpath_root="$scriptpath/output"
-outbin="op-watch"
+outbin="opwatch"
 
 echo "$LOGTAG script call path : $currentpath"
 echo "$LOGTAG script path : $scriptpath"
